@@ -1,0 +1,295 @@
+/* Global */
+html,
+body,
+#root,
+.App {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.App {
+  flex-direction: column;
+  overflow: hidden;
+  background: #999;
+}
+
+/* LayoutMode */
+
+.LayoutModeControl {
+  display: inline-flex;
+  flex-direction: row;
+
+  background: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.LayoutModeControlButton {
+  background: #ccc;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 13px;
+  cursor: pointer;
+  opacity: 0.25;
+}
+
+.LayoutModeControlButton.active {
+  color: #000;
+  opacity: 1;
+}
+
+.LayoutModeControlButton:hover {
+  color: #000;
+}
+
+/* NightMode */
+
+.NightModeControl {
+  display: inline-flex;
+  align-items: center;
+  background-color: orange;
+  border: 3px solid orange;
+  border-radius: 100px;
+  color: black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.NightModeControlCaption {
+  flex: 1;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0 10px;
+}
+
+.NightModeControlCaption.right {
+  text-align: right;
+}
+
+.NightModeControlKnob {
+  background: white;
+  border-radius: 100px;
+  min-width: 30px;
+  min-height: 30px;
+}
+
+/* Todo */
+
+.TodoListHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.125);
+}
+
+.TodoListHeader > * {
+  margin: 10px;
+}
+
+.TodoListHeader button {
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: transparent;
+  text-shadow: 0 0 0 white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.TodoListHeader button:hover {
+  background: rgba(255, 255, 0, 0.25);
+  border-color: white;
+}
+
+button.TodoDeleteSelectedButton:hover {
+  background: rgba(255, 0, 0, 0.25);
+}
+
+.TodoSelectedTodoIdsCounter {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.TodoSelectedTodoIdsCounter span {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.TodoList,
+.TodoListEmpty {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.TodoList {
+  flex: 1;
+  overflow-y: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.TodoList.tiles {
+  flex-direction: unset;
+  flex-wrap: wrap;
+}
+
+.TodoListEmpty {
+  flex: 1;
+  align-content: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: grey;
+}
+
+.Todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  list-style: none;
+  background: white;
+  border: 3px solid transparent;
+  margin: 5px;
+  padding: 10px 10px;
+
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.75;
+}
+
+.TodoList.tiles .Todo {
+  width: 180px;
+}
+
+.Todo.isDone {
+  opacity: 0.25;
+}
+
+.Todo.isSelected {
+  border-color: blue;
+  opacity: 1;
+}
+
+.TodoCheckbox {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(0, 0, 255, 0.75);
+  cursor: pointer;
+}
+
+.TodoCheckbox:checked {
+  background-color: blue;
+}
+
+.TodoTitle {
+  flex: 1;
+  margin: 5px;
+}
+
+.TodoDeleteButton {
+  background-color: transparent;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.TodoDeleteButton:hover {
+  opacity: 1;
+}
+
+.TodoCounter {
+  padding: 10px;
+}
+
+.TodoDoneCounter {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.TodoProgressBar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border: 3px solid blue;
+  background-color: lightblue;
+  align-items: center;
+}
+
+.TodoProgressBarPercentage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+
+  background-color: rgba(0, 0, 255, 0.25);
+}
+
+/* .nightMode */
+
+.App.nightMode {
+  /* filter: grayscale(0.5); */
+  background: black;
+}
+
+.nightMode .NightModeControl {
+  border-color: white;
+  background-color: black;
+}
+
+.nightMode .NightModeControlKnob {
+  background: white;
+  width: 30px;
+  height: 30px;
+}
+
+.nightMode .Todo {
+  background-color: #666;
+}
+
+.nightMode .Todo.isSelected {
+  border-color: yellow;
+}
+
+.nightMode .TodoCheckbox {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.nightMode .TodoCheckbox:checked {
+  border-color: transparent;
+  background-color: white;
+}
+
+.nightMode .TodoTitle {
+  color: white;
+}
+
+.nightMode .TodoProgressBar {
+  border: 3px solid yellow;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.nightMode .TodoProgressBarPercentage {
+  background-color: rgba(255, 255, 0, 0.25);
+}

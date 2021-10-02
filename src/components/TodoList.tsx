@@ -1,16 +1,22 @@
-import { useSubscribeTodoList } from "../AppState";
+import { useSubscribeLayoutMode, useSubscribeTodoList } from "../AppState";
 import Todo from "./Todo";
 
 function TodoList() {
   console.log("render <TodoList>");
+
   const todoList = useSubscribeTodoList();
+  const layoutMode = useSubscribeLayoutMode();
+
+  if (todoList.length === 0) {
+    return <div className="TodoListEmpty">EMPTY</div>;
+  }
 
   return (
-    <ul>
-      {todoList.reverse().map((todo) => (
+    <div className={`TodoList${layoutMode === "tiles" ? " tiles" : ""}`}>
+      {todoList.map((todo) => (
         <Todo key={todo.id} todoId={todo.id} />
       ))}
-    </ul>
+    </div>
   );
 }
 
