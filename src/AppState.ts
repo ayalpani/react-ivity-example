@@ -86,16 +86,20 @@ export function useSubscribeTodoDoneCounter(): number {
 
 //////////////////// Actions
 
-export function actionSetNightMode(isNightMode: boolean) {
-  console.log("💥 actionSetNightMode");
-  appState.nightMode = isNightMode;
-  notifySubscribers("nightMode");
+export function actionSetNightMode(nightMode: boolean) {
+  console.log("💥 actionSetNightMode", { nightMode });
+  if (appState.nightMode !== nightMode) {
+    appState.nightMode = nightMode;
+    notifySubscribers("nightMode");
+  }
 }
 
-export function actionSetLayoutMode(value: LayoutMode) {
-  console.log("💥 actionSetLayoutMode");
-  appState.layoutMode = value;
-  notifySubscribers("layoutMode");
+export function actionSetLayoutMode(layoutMode: LayoutMode) {
+  console.log("💥 actionSetLayoutMode", { layoutMode });
+  if (appState.layoutMode !== layoutMode) {
+    appState.layoutMode = layoutMode;
+    notifySubscribers("layoutMode");
+  }
 }
 
 let nextTodoId = 1;
