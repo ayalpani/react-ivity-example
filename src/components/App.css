@@ -13,7 +13,7 @@ body,
 .App {
   flex-direction: column;
   overflow: hidden;
-  background: #999;
+  background: var(--tg-theme-bg-color, #999);
 }
 
 /* LayoutMode */
