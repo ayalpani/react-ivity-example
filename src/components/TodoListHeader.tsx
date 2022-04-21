@@ -1,3 +1,4 @@
+import BotControl from "./BotControl";
 import LayoutModeControl from "./LayoutModeControl";
 import NightModeControl from "./NightModeControl";
 import TodoProgressBar from "./TodoProgressBar";
@@ -12,6 +13,7 @@ function TodoListHeader() {
 
       <div style={{ flex: 1 }} />
 
+      <BotControl />
       <NightModeControl />
     </div>
   );
