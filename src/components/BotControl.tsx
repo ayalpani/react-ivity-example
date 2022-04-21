@@ -14,7 +14,9 @@ function BotControl() {
       className={`BotControl`}
       onClick={() => {
         if (window.Telegram.WebApp !== undefined) {
-          window.Telegram.WebApp.sendData(window.Telegram.WebApp.initData);
+          window.Telegram.WebApp.sendData({
+            data: window.Telegram.WebApp.initData,
+          });
         }
       }}
     >
