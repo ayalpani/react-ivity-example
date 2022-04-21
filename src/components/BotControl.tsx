@@ -1,5 +1,4 @@
 import React from "react";
-import { useSubscribeNightMode } from "../AppState";
 
 declare global {
   interface Window {
@@ -10,7 +9,6 @@ declare global {
 function BotControl() {
   console.log("render <BotControl>");
 
-  const nightMode = useSubscribeNightMode();
   return (
     <div
       className={`BotControl`}
